@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>★ WELCOME TO CYBERSPACE ★ - The Ultimate Retro Experience</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Orbitron:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #000080, #4B0082, #8B008B, #FF1493);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease infinite;
+            font-family: 'Comic Neue', cursive;
+            overflow: hidden;
+            height: 100vh;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="8" fill="yellow" stroke="red" stroke-width="2"/></svg>'), auto;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .main-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .neon-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: neonGlow 2s ease-in-out infinite alternate, bounce 3s ease-in-out infinite;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px #0ff,
+                0 0 20px #0ff,
+                0 0 35px #0ff,
+                0 0 40px #0ff;
+            color: #fff;
+        }
+        
+        @keyframes neonGlow {
+            from {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px #0ff,
+                    0 0 20px #0ff,
+                    0 0 35px #0ff,
+                    0 0 40px #0ff;
+            }
+            to {
+                text-shadow: 
+                    0 0 2px #fff,
+                    0 0 5px #fff,
+                    0 0 8px #0ff,
+                    0 0 12px #0ff,
+                    0 0 18px #0ff,
+                    0 0 25px #0ff;
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .rainbow-text {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowShift 3s ease infinite;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        @keyframes rainbowShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .spinning-logo {
+            width: 150px;
+            height: 150px;
+            border: 5px solid #0ff;
+            border-radius: 50%;
+            position: relative;
+            animation: spin 4s linear infinite;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #ff00ff, #00ffff);
+            box-shadow: 0 0 30px #0ff;
+        }
+        
+        .spinning-logo::before {
+            content: "🌟";
+            font-size: 4rem;
+            animation: spinReverse 2s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes spinReverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        
+        .flying-objects {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .flying-emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: flyAcross 8s linear infinite;
+        }
+        
+        .flying-emoji:nth-child(1) { animation-delay: 0s; top: 10%; }
+        .flying-emoji:nth-child(2) { animation-delay: 2s; top: 30%; }
+        .flying-emoji:nth-child(3) { animation-delay: 4s; top: 50%; }
+        .flying-emoji:nth-child(4) { animation-delay: 6s; top: 70%; }
+        .flying-emoji:nth-child(5) { animation-delay: 1s; top: 90%; }
+        
+        @keyframes flyAcross {
+            0% { left: -100px; transform: rotate(0deg); }
+            100% { left: calc(100% + 100px); transform: rotate(360deg); }
+        }
+        
+        .blink-text {
+            font-size: 1.5rem;
+            color: #ffff00;
+            font-weight: bold;
+            animation: blink 1s infinite;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        .retro-button {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: 3px solid #fff;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 15px 30px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+            margin: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        .retro-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: shake 0.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+            100% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) scale(1.1); }
+            25% { transform: translateX(-5px) scale(1.1); }
+            75% { transform: translateX(5px) scale(1.1); }
+        }
+        
+        .marquee-container {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #0ff;
+            border-bottom: 2px solid #0ff;
+            overflow: hidden;
+        }
+        
+        .marquee {
+            color: #0ff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            white-space: nowrap;
+            animation: marqueeScroll 15s linear infinite;
+            padding: 10px 0;
+        }
+        
+        @keyframes marqueeScroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .matrix-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        .glitch {
+            animation: glitch 2s infinite;
+        }
+        
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        
+        .fire-text {
+            color: #ff4500;
+            text-shadow: 
+                0 0 5px #ff4500,
+                0 0 10px #ff4500,
+                0 0 15px #ff4500,
+                0 0 20px #ff4500;
+            animation: fire 0.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes fire {
+            0% { 
+                text-shadow: 
+                    0 0 5px #ff4500,
+                    0 0 10px #ff4500,
+                    0 0 15px #ff4500,
+                    0 0 20px #ff4500;
+            }
+            100% { 
+                text-shadow: 
+                    0 0 10px #ff6600,
+                    0 0 20px #ff6600,
+                    0 0 30px #ff6600,
+                    0 0 40px #ff6600;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="starsContainer"></div>
+    
+    <div class="flying-objects">
+        <div class="flying-emoji">🚀</div>
+        <div class="flying-emoji">⭐</div>
+        <div class="flying-emoji">🌙</div>
+        <div class="flying-emoji">👾</div>
+        <div class="flying-emoji">🛸</div>
+    </div>
+    
+    <canvas class="matrix-rain" id="matrixCanvas"></canvas>
+    
+    <div class="main-container">
+        <h1 class="neon-title glitch">CYBERSPACE</h1>
+        <h2 class="rainbow-text">★ Welcome to the Digital Frontier ★</h2>
+        
+        <div class="spinning-logo"></div>
+        
+        <div class="blink-text fire-text">🔥 EPIC RETRO VIBES 🔥</div>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+            <button class="retro-button" onclick="enterPortal()">Enter Portal</button>
+            <button class="retro-button" onclick="openCyberMail()">Cyber Mail</button>
+            <button class="retro-button" onclick="openWebRing()">Web Ring</button>
+        </div>
+        
+        <div style="margin-top: 2rem; text-align: center;">
+            <div class="rainbow-text" style="font-size: 1rem;">
+                ✨ Best viewed in Netscape Navigator ✨
+            </div>
+        </div>
+    </div>
+    
+    <div class="marquee-container">
+        <div class="marquee">
+            ★★★ Welcome to the year 2000! ★★★ Now with 100% more FLASH animations! ★★★ Don't forget to sign my guestbook! ★★★ This site is optimized for 800x600 resolution ★★★ 
+        </div>
+    </div>
+
+    <script src="animation.js"></script>
+</body>
+</html> 
